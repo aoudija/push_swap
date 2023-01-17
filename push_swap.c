@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 07:52:48 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/17 13:52:55 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/17 18:50:54 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,36 +15,19 @@
 void	sa(t_stack_a **head)
 {
 	int			temp;
-
+	
 	temp = (*head)->num;
 	(*head)->num = (*head)->next->num;
 	(*head)->next->num = temp;
-	while ((*head))
-	{
-		printf("%d\n", (*head)->num);
-		(*head) = (*head)->next;
-	}
 }
 
 void	ra(t_stack_a **head)
 {
-	int			temp;
 	t_stack_a	*tempo;
 
-	tempo = (*head)->next;
-	temp = (*head)->num;
-	while (tempo)
-	{
-		if (!tempo->next)
-			break ;
-		tempo = tempo->next;
-	}
-	printf("%d\n", tempo->num);
-	(*head)->num = tempo->num;
-	// temp = (*head)->num;
-	// (*head)->num = (*head)->next->num;
-	// (*head)->next->num = temp;
-	// printf("%d\n", (*head)->num);
+	tempo = (*head);
+	(*head) = (*head)->next;
+	ft_lstadd_back(head, ft_lstnew(tempo->num));
 }
 
 int	main(int argc, char *argv[])
@@ -60,13 +43,10 @@ int	main(int argc, char *argv[])
 		argc--;
 	}
 	tempo = head;
-	printf("9abla\n");
+	ra(&head);
 	while (head)
 	{
 		printf("%d\n",head->num);
 		head = head->next;
 	}
-	printf("ba3da\n");
-	// sa(&tempo);
-	ra(&tempo);
 }
