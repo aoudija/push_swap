@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 07:52:48 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/17 18:50:54 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/17 18:53:07 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sa(t_stack_a **head)
 {
 	int			temp;
-	
+
 	temp = (*head)->num;
 	(*head)->num = (*head)->next->num;
 	(*head)->next->num = temp;
