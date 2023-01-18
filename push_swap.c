@@ -6,39 +6,44 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 07:52:48 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/18 09:28:30 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/18 10:00:28 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	sa(t_stack_a **head)
+void	sa(t_stack **head_a)
 {
 	int			temp;
 
-	temp = (*head)->num;
-	(*head)->num = (*head)->next->num;
-	(*head)->next->num = temp;
+	temp = (*head_a)->num;
+	(*head_a)->num = (*head_a)->next->num;
+	(*head_a)->next->num = temp;
 }
 
-void	ra(t_stack_a **head)
+void	ra(t_stack **head_a)
 {
-	t_stack_a	*tempo;
+	t_stack	*tempo;
 
-	tempo = (*head);
-	(*head) = (*head)->next;
+	tempo = (*head_a);
+	(*head_a) = (*head_a)->next;
 	ft_lstadd_back(head, ft_lstnew(tempo->num));
 }
 
-void	rra(t_stack_a **head)
+void	pb(t_stack **head_a, t_stack **head_a)
 {
-	t_stack_a	*tempo;
+	t_stack
+}
+
+void	rra(t_stack **head_a)
+{
+	t_stack	*tempo;
 	int			temp;
 
-	temp = ft_lstlast((*head))->num;
+	temp = ft_lstlast((*head_a))->num;
 	ft_lstadd_front(head, ft_lstnew(temp));
-	temp = ft_lstsize((*head));
-	tempo = (*head);
+	temp = ft_lstsize((*head_a));
+	tempo = (*head_a);
 	while (tempo)
 	{
 		if (temp == 2)
@@ -51,18 +56,23 @@ void	rra(t_stack_a **head)
 
 int	main(int argc, char *argv[])
 {
-	t_stack_a	*head;
-	t_stack_a	*tempo;
+	t_stack	*head_a;
+	t_stack	*head_b;
+	t_stack	*tempo;
 
-	head = ft_lstnew(ft_atoi(argv[argc - 1]));
+	head_a = ft_lstnew(ft_atoi(argv[argc - 1]));
 	argc -= 2;
 	while (argc > 0)
 	{
-		ft_lstadd_front(&head, ft_lstnew(ft_atoi(argv[argc])));
+		ft_lstadd_front(&head_a, ft_lstnew(ft_atoi(argv[argc])));
 		argc--;
 	}
-	tempo = head;
-	ra(&head);
-	sa(&head);
-	rra(&head);
+	// ra(&head_a);
+	// sa(&head_a);
+	rra(&head_a);
+	while (head_a)
+	{
+		printf("%d\n",head_a->num);
+		head_a = head_a->next;
+	}
 }

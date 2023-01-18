@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 07:21:10 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/18 08:36:18 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/18 10:00:28 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ typedef struct stack
 {
 	int				num;
 	struct stack	*next;
-}	t_stack_a;
-t_stack_a	*ft_lstnew(int num);
-void		ft_lstadd_front(t_stack_a **lst, t_stack_a *new);
-t_stack_a	*ft_lstlast(t_stack_a *lst);
-void		ft_lstadd_back(t_stack_a **lst, t_stack_a *new);
-int			ft_lstsize(t_stack_a *lst);
+}	t_stack;
+t_stack	*ft_lstnew(int num);
+void		ft_lstadd_front(t_stack **lst, t_stack *new);
+t_stack	*ft_lstlast(t_stack *lst);
+void		ft_lstadd_back(t_stack **lst, t_stack *new);
+int			ft_lstsize(t_stack *lst);
 
 #endif

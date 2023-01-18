@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 08:36:57 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/17 18:24:16 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/18 10:00:28 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int	ft_atoi(const char *str)
 	return (nb * s);
 }
 
-t_stack_a	*ft_lstnew(int num)
+t_stack	*ft_lstnew(int num)
 {
-	t_stack_a	*x;
+	t_stack	*x;
 
-	x = malloc(sizeof(t_stack_a));
+	x = malloc(sizeof(t_stack));
 	if (!x)
 		return (NULL);
 	x->num = num;
@@ -50,7 +50,7 @@ t_stack_a	*ft_lstnew(int num)
 	return (x);
 }
 
-void	ft_lstadd_front(t_stack_a **lst, t_stack_a *new)
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
 	if (lst && new)
 	{
@@ -59,7 +59,7 @@ void	ft_lstadd_front(t_stack_a **lst, t_stack_a *new)
 	}
 }
 
-t_stack_a	*ft_lstlast(t_stack_a *lst)
+t_stack	*ft_lstlast(t_stack *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -70,9 +70,9 @@ t_stack_a	*ft_lstlast(t_stack_a *lst)
 	return (lst);
 }
 
-void	ft_lstadd_back(t_stack_a **lst, t_stack_a *new)
+void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
-	t_stack_a	*last;
+	t_stack	*last;
 
 	if (lst)
 	{

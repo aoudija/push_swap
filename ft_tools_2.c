@@ -6,13 +6,13 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 08:35:05 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/18 08:35:26 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/18 10:00:28 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	ft_lstsize(t_stack_a *lst)
+int	ft_lstsize(t_stack *lst)
 {
 	int	i;
 
