@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 07:52:48 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/17 18:53:07 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/18 09:28:30 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,25 @@ void	ra(t_stack_a **head)
 	ft_lstadd_back(head, ft_lstnew(tempo->num));
 }
 
+void	rra(t_stack_a **head)
+{
+	t_stack_a	*tempo;
+	int			temp;
+
+	temp = ft_lstlast((*head))->num;
+	ft_lstadd_front(head, ft_lstnew(temp));
+	temp = ft_lstsize((*head));
+	tempo = (*head);
+	while (tempo)
+	{
+		if (temp == 2)
+			break ;
+		tempo = tempo->next;
+		temp--;
+	}
+	tempo->next = NULL;
+}
+
 int	main(int argc, char *argv[])
 {
 	t_stack_a	*head;
@@ -44,9 +63,6 @@ int	main(int argc, char *argv[])
 	}
 	tempo = head;
 	ra(&head);
-	while (head)
-	{
-		printf("%d\n",head->num);
-		head = head->next;
-	}
+	sa(&head);
+	rra(&head);
 }

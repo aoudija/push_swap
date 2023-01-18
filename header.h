@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 07:21:10 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/17 18:53:36 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/18 08:36:18 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ t_stack_a	*ft_lstnew(int num);
 void		ft_lstadd_front(t_stack_a **lst, t_stack_a *new);
 t_stack_a	*ft_lstlast(t_stack_a *lst);
 void		ft_lstadd_back(t_stack_a **lst, t_stack_a *new);
+int			ft_lstsize(t_stack_a *lst);
 
 #endif
