@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 07:21:10 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/19 18:06:41 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/21 07:56:32 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <string.h>
 
 int		ft_atoi(const char *str);
 typedef struct stack

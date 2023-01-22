@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:30:36 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/19 13:49:38 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/22 10:20:26 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	rrb(t_stack **head_b)
 {
 	t_stack	*tempo;
-	int			temp;
+	int		temp;
 
 	temp = ft_lstlast((*head_b))->num;
 	ft_lstadd_front(head_b, ft_lstnew(temp));

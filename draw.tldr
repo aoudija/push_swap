@@ -160,6 +160,28 @@
               "scale": 1
             },
             "assetId": "88d95858-32ba-4956-319a-a5fb5aa90273"
+          },
+          "b0527593-b3c4-457b-2955-e2cacd64548b": {
+            "id": "b0527593-b3c4-457b-2955-e2cacd64548b",
+            "type": "text",
+            "name": "Text",
+            "parentId": "page",
+            "childIndex": 8,
+            "point": [
+              -132.13,
+              510.4
+            ],
+            "rotation": 0,
+            "text": "function that spots the min\n                         function that returns every num's position",
+            "style": {
+              "color": "black",
+              "size": "small",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "font": "script",
+              "textAlign": "middle"
+            }
           }
         },
         "bindings": {}
