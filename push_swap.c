@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 07:52:48 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/22 10:43:17 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/23 23:04:08 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	position(int num, t_stack *temp)
 	int	pos;
 
 	pos = 1;
+	// printf("++++++%d\n", ft_lstsize(temp));
 	while (temp)
 	{
 		if (temp->num == num)
@@ -43,22 +44,27 @@ int	position(int num, t_stack *temp)
 
 void	sort_three(t_stack **head_a)
 {
-	if ((*head_a)->num > (*head_a)->next->num && (*head_a)->num < ft_lstlast((*head_a))->num)
+	if ((*head_a)->num > (*head_a)->next->num
+		&& (*head_a)->num < ft_lstlast((*head_a))->num)
 		sa(&(*head_a));
-	if ((*head_a)->num > (*head_a)->next->num && (*head_a)->num > ft_lstlast((*head_a))->num 
+	if ((*head_a)->num > (*head_a)->next->num
+		&& (*head_a)->num > ft_lstlast((*head_a))->num
 		&& ft_lstlast((*head_a))->num < (*head_a)->next->num)
 	{
 		sa(&(*head_a));
 		rra(&(*head_a));
 	}
-	if (ft_lstlast((*head_a))->num > (*head_a)->next->num && (*head_a)->num > ft_lstlast((*head_a))->num)
+	if (ft_lstlast((*head_a))->num > (*head_a)->next->num
+		&& (*head_a)->num > ft_lstlast((*head_a))->num)
 		ra(&(*head_a));
-	if (ft_lstlast((*head_a))->num < (*head_a)->next->num && ft_lstlast((*head_a))->num > (*head_a)->num)
+	if (ft_lstlast((*head_a))->num < (*head_a)->next->num
+		&& ft_lstlast((*head_a))->num > (*head_a)->num)
 	{
 		sa(&(*head_a));
 		ra(&(*head_a));
 	}
-	if ((*head_a)->num < (*head_a)->next->num && (*head_a)->num > ft_lstlast((*head_a))->num)
+	if ((*head_a)->num < (*head_a)->next->num
+		&& (*head_a)->num > ft_lstlast((*head_a))->num)
 		rra(&(*head_a));
 }
 
@@ -66,12 +72,12 @@ void	optimize_case_5(int pos, t_stack **head_a)
 {
 	if (pos - 5 == 0)
 		rra(&(*head_a));
-	else if(pos - 5 == -1)
+	else if (pos - 5 == -1)
 	{
 		rra(&(*head_a));
 		rra(&(*head_a));
 	}
-	else if(pos - 5 == -2)
+	else if (pos - 5 == -2)
 	{
 		ra(&(*head_a));
 		ra(&(*head_a));
@@ -157,11 +163,12 @@ int	*sorted_in_tab(t_stack	*head_a)
 	return (tab);
 }
 
-int	number_in_range_top(int *table, t_stack *stack_a, int start, int end)
+int	number_in_range_top(int *table, t_stack *stack_a, int end)
 {
 	int	i;
+	int	start;
 
-	i = start;
+	start = end - 20 + 1;
 	while (stack_a)
 	{
 		i = start;
@@ -201,7 +208,6 @@ int	number_in_range_bottom(int *table, t_stack	*head_a, int *rev_tab, int end)
 
 	start = end - 20 + 1;
 	j = 0;
-	i = start;
 	while (j < ft_lstsize(head_a))
 	{
 		i = start;
@@ -223,8 +229,9 @@ int	main(int argc, char *argv[])
 	t_stack	*tempo;
 	int		*tab;
 	int		*r_tab;
-	int		len;
+	int		j;
 	int		i;
+	int		v;
 	int		pos1;
 	int		pos2;
 	int		num1;
@@ -237,19 +244,47 @@ int	main(int argc, char *argv[])
 		ft_lstadd_front(&head_a, ft_lstnew(ft_atoi(argv[argc])));
 		argc--;
 	}
-	tab = sorted_in_tab(head_a);
-	r_tab = reversed_stack(head_a);
-	i = 0;
-	num1 = number_in_range_top(tab, tempo, 0, 19);
-	num2 = number_in_range_bottom(tab, tempo, r_tab, 0, 19);
-	
-	number_in_range_top(tab, tempo, 20, 39);
-	number_in_range_bottom(tab, tempo, r_tab, 20, 39);
-	number_in_range_top(tab, tempo, 40, 59);
-	number_in_range_bottom(tab, tempo, r_tab, 40, 59);
-	number_in_range_top(tab, tempo, 60, 79);
-	number_in_range_bottom(tab, tempo, r_tab, 60, 79);
-	number_in_range_top(tab, tempo, 80, 99);
-	number_in_range_bottom(tab, tempo, r_tab,80, 99);
-	
+	tempo = head_a;
+	tab = sorted_in_tab(tempo);
+	tempo = head_a;
+
+	j = 19;
+	int top;
+	int bot;
+	while (j < 100)
+	{
+		i = 20;
+		while (i > 0)
+		{
+			top = number_in_range_top(tab, head_a, j);
+			r_tab = reversed_stack(head_a);
+			bot = number_in_range_bottom(tab, head_a, r_tab,j);
+			pos1 = position(top, head_a);
+			pos2 = position(bot, head_a);
+			if (pos1 == 1 || pos2 == 1)
+			{
+			}
+			else if (pos1 == ft_lstsize(head_a) - 1 || pos2 == ft_lstsize(head_a) - 1)
+			{
+				rra(&head_a);
+				rra(&head_a);
+			}
+			else
+				move_min_top(pos1, pos2, &head_a);
+			pb(&head_b, &head_a);
+			i--;
+		}
+		j += 20;
+	}
+	while (head_b)
+	{
+		printf(">>%d \n", head_b->num);
+		head_b = head_b->next;
+	}
+	// printf("\n-stack A\n");
+	// while (head_a)
+	// {
+	// 	printf("$$$%d ", head_a->num);
+	// 	head_a = head_a->next;
+	// }
 }

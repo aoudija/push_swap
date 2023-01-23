@@ -6,27 +6,30 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:26:21 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/22 10:26:07 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/23 23:02:57 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	optimize_mnt(int i, t_stack ***head_a)
+void	optimize_mnt(int i, int pos,t_stack ***head_a)
 {
-	if (i - 100 > 0)
+	if (pos > ft_lstsize(**head_a) / 2)
 	{
 		while (i > 0)
 		{
-			rra(&(**head));
+			rra(*head_a);
 			i--;
 		}
+	}
+	else if (i == 0)
+	{
 	}
 	else
 	{
 		while (i > 0)
 		{
-			ra(&(**head));
+			ra(*head_a);
 			i--;
 		}
 	}
@@ -36,18 +39,18 @@ void	move_min_top(int pos1, int pos2, t_stack **head_a)
 {
 	int	i;
 	int	j;
-	int	r;
 
 	if (pos1 <= 50)
 		i = pos1 - 1;
 	else if (pos1 > 50)
-		i = 100 - pos1 + 1;
+		i = ft_lstsize(*head_a) - pos1 + 1;
 	if (pos2 <= 50)
-		j = pos1 - 1;
+		j = pos2 - 1;
 	else if (pos2 > 50)
-		j = 100 - pos2 + 1;
-	if (i > j)
-		optimize_mnt(i, head_a);
-	if (i < j)
-		optimize_mnt(j, head_a);
+		j = ft_lstsize(*head_a) - pos2 + 1;
+	if (j <= i)
+		optimize_mnt(j , pos2, &head_a);
+	else if (j > i)
+		optimize_mnt(i, pos1, &head_a);
+	
 }

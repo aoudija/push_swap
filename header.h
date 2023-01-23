@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 07:21:10 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/21 07:56:32 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/22 15:43:44 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ void	ss(t_stack **head_b, t_stack **head_a);
 void	rrr(t_stack **head_b, t_stack **head_a);
 void	pb(t_stack **head_b, t_stack **head_a);
 void	pa(t_stack **head_b, t_stack **head_a);
+void	move_min_top(int pos1, int pos2, t_stack **head_a);
+
 
 #endif
