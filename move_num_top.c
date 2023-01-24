@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_min_top.c                                     :+:      :+:    :+:   */
+/*   move_num_top.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:26:21 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/24 12:36:00 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/24 16:06:26 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "push_swap.h"
 
 void	optimize_mnt(int i, int pos,t_stack ***head_a)
 {
@@ -35,11 +35,13 @@ void	optimize_mnt(int i, int pos,t_stack ***head_a)
 	}
 }
 
-void	move_num_top(int pos1, int pos2, t_stack **head_a)
+void	move_min_top(int pos1, int pos2, t_stack **head_a)
 {
 	int	i;
 	int	j;
 
+	i = 0;
+	j = 0;
 	if (pos1 <= ft_lstsize(*head_a) / 2)
 		i = pos1 - 1;
 	else if (pos1 > ft_lstsize(*head_a) / 2)
@@ -52,4 +54,16 @@ void	move_num_top(int pos1, int pos2, t_stack **head_a)
 		optimize_mnt(j , pos2, &head_a);
 	else if (j > i)
 		optimize_mnt(i, pos1, &head_a);
+}
+
+void	move_max_top(int pos, t_stack **head_b)
+{
+	int	i;
+
+	i = 0;
+	if (pos <= ft_lstsize(*head_b) / 2)
+		i = pos - 1;
+	else if (pos > ft_lstsize(*head_b) / 2)
+		i = ft_lstsize(*head_b) - pos + 1;
+	optimize_mnt(i, pos, &head_b);
 }

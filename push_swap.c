@@ -6,11 +6,11 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 07:52:48 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/24 13:40:11 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/24 16:06:41 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "push_swap.h"
 
 int	min_node(t_stack *temp)
 {
@@ -151,16 +151,33 @@ int	main(int argc, char *argv[])
 				rra(&head_a);
 			}
 			else
-				move_num_top(pos1, pos2, &head_a);
+				move_min_top(pos1, pos2, &head_a);
 			pb(&head_b, &head_a);
 			i--;
 		}
 		j += size / 5;
 	}
-	while (j < size)
+	size = ft_lstsize(head_b);
+	tab = sorted_in_tab(head_b);
+	r_tab = sorted_MAX_tab(tab, size);
+	i = 0;
+	while (i < size)
 	{
-		
+		pos1 = position(r_tab[i], head_b);
+		if (pos1 == 1)
+		{
+		}
+		else if (pos1 == ft_lstsize(head_a) - 1)
+		{
+			rra(&head_b);
+			rra(&head_b);
+		}
+		else
+			move_max_top(pos1, &head_b);
+		pa(&head_b, &head_a);
+		i++;
 	}
+	
 	// j = 0;
 	// r_tab = sorted_MAX_tab(tab, ft_lstsize(head_a));
 	// printf("%d\n", ft_lstsize(head_a));
@@ -179,7 +196,7 @@ int	main(int argc, char *argv[])
 	// printf("\n-stack A\n");
 	// while (head_a)
 	// {
-	// 	printf("$$$%d ", head_a->num);
+	// 	printf("%d\n", head_a->num);
 	// 	head_a = head_a->next;
 	// }
 }

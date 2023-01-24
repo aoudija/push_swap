@@ -6,11 +6,11 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 08:36:57 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/18 10:00:28 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/24 15:26:41 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "push_swap.h"
 
 int	ft_atoi(const char *str)
 {

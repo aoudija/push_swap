@@ -6,11 +6,11 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:19:27 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/23 23:11:53 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/24 15:26:41 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "push_swap.h"
 
 void	sa(t_stack **head_a)
 {
@@ -37,6 +37,7 @@ void	ra(t_stack **head_a)
 	tempo = (*head_a);
 	(*head_a) = (*head_a)->next;
 	ft_lstadd_back(head_a, ft_lstnew(tempo->num));
+	printf("ra\n");
 }
 
 void	rb(t_stack **head_b)
@@ -65,4 +66,5 @@ void	rra(t_stack **head_a)
 		temp--;
 	}
 	tempo->next = NULL;
+	printf("rra\n");
 }

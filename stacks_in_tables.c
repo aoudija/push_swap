@@ -6,11 +6,11 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:03:33 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/24 13:39:06 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/24 15:26:41 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "push_swap.h"
 
 int	*put_stack_in_table(t_stack *head_a)
 {

@@ -6,11 +6,11 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 08:35:05 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/24 12:20:12 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/24 15:26:41 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "push_swap.h"
 
 int	ft_lstsize(t_stack *lst)
 {
