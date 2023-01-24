@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 07:52:48 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/23 23:04:08 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/24 13:40:11 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,6 @@ int	min_node(t_stack *temp)
 		temp = temp->next;
 	}
 	return (min);
-}
-
-int	position(int num, t_stack *temp)
-{
-	int	pos;
-
-	pos = 1;
-	// printf("++++++%d\n", ft_lstsize(temp));
-	while (temp)
-	{
-		if (temp->num == num)
-			break ;
-		pos++;
-		temp = temp->next;
-	}
-	return (pos);
 }
 
 void	sort_three(t_stack **head_a)
@@ -126,102 +110,6 @@ void	sort_five(t_stack **head_a, t_stack **head_b)
 	pa(&(*head_b), &(*head_a));
 }
 
-int	*sorted_in_tab(t_stack	*head_a)
-{
-	int	*tab;
-	int	i;
-	int temp;
-	int	len;
-	int	j;
-
-	tab = malloc(4 * ft_lstsize(head_a));
-	i = 0;
-	while (head_a)
-	{
-		tab[i] = head_a->num;
-		head_a = head_a->next;
-		i++;
-	}
-	len = i;
-	j = 0;
-	i = 0;
-	while (i < len)
-	{
-		j = i + 1;
-		while (j < len)
-		{
-			if (tab[i] > tab[j])
-			{
-				temp = tab[j];
-				tab[j] = tab[i];
-				tab[i] = temp;
-			}
-			j++;
-		}
-		i++;
-	}
-	return (tab);
-}
-
-int	number_in_range_top(int *table, t_stack *stack_a, int end)
-{
-	int	i;
-	int	start;
-
-	start = end - 20 + 1;
-	while (stack_a)
-	{
-		i = start;
-		while (i <= end)
-		{
-			if (table[i] == stack_a->num)
-				return (stack_a->num);
-			i++;
-		}
-		stack_a = stack_a->next;
-	}
-	return (0);
-}
-
-int	*reversed_stack(t_stack *head_a)
-{
-	int	i;
-	int	*tab;
-
-	tab = malloc(4 * ft_lstsize(head_a));
-	i = ft_lstsize(head_a) - 1;
-	while (head_a && i >= 0)
-	{
-		tab[i] = head_a->num;
-		head_a = head_a->next;
-		i--;
-	}
-	return (tab);
-}
-
-int	number_in_range_bottom(int *table, t_stack	*head_a, int *rev_tab, int end)
-{
-	int		i;
-	t_stack	*temp;
-	int		j;
-	int		start;
-
-	start = end - 20 + 1;
-	j = 0;
-	while (j < ft_lstsize(head_a))
-	{
-		i = start;
-		while (i <= end)
-		{
-			if (table[i] == rev_tab[j])
-				return (rev_tab[j]);
-			i++;
-		}
-		j++;
-	}
-	return (0);
-}
-
 int	main(int argc, char *argv[])
 {
 	t_stack	*head_a;
@@ -231,11 +119,9 @@ int	main(int argc, char *argv[])
 	int		*r_tab;
 	int		j;
 	int		i;
-	int		v;
 	int		pos1;
 	int		pos2;
-	int		num1;
-	int		num2;
+	int		size;
 
 	head_a = ft_lstnew(ft_atoi(argv[argc - 1]));
 	argc -= 2;
@@ -244,23 +130,18 @@ int	main(int argc, char *argv[])
 		ft_lstadd_front(&head_a, ft_lstnew(ft_atoi(argv[argc])));
 		argc--;
 	}
-	tempo = head_a;
-	tab = sorted_in_tab(tempo);
-	tempo = head_a;
-
+	tab = sorted_in_tab(head_a);
 	j = 19;
-	int top;
-	int bot;
-	while (j < 100)
+	tempo = head_a;
+	size = ft_lstsize(head_a);
+	while (j < size)
 	{
-		i = 20;
+		i = size / 5;
 		while (i > 0)
 		{
-			top = number_in_range_top(tab, head_a, j);
 			r_tab = reversed_stack(head_a);
-			bot = number_in_range_bottom(tab, head_a, r_tab,j);
-			pos1 = position(top, head_a);
-			pos2 = position(bot, head_a);
+			pos1 = position(number_in_range_top(tab, head_a, j), head_a);
+			pos2 = position(number_in_range_bottom(tab, head_a, r_tab,j), head_a);
 			if (pos1 == 1 || pos2 == 1)
 			{
 			}
@@ -270,17 +151,31 @@ int	main(int argc, char *argv[])
 				rra(&head_a);
 			}
 			else
-				move_min_top(pos1, pos2, &head_a);
+				move_num_top(pos1, pos2, &head_a);
 			pb(&head_b, &head_a);
 			i--;
 		}
-		j += 20;
+		j += size / 5;
 	}
-	while (head_b)
+	while (j < size)
 	{
-		printf(">>%d \n", head_b->num);
-		head_b = head_b->next;
+		
 	}
+	// j = 0;
+	// r_tab = sorted_MAX_tab(tab, ft_lstsize(head_a));
+	// printf("%d\n", ft_lstsize(head_a));
+	// i = 0;
+	// while (i < ft_lstsize(head_a))
+	// {
+	// 	printf("%d\n", r_tab[i]);
+	// 	i++;
+	// }
+	
+	// while (head_b)
+	// {
+	// 	printf(">>%d \n", head_b->num);
+	// 	head_b = head_b->next;
+	// }
 	// printf("\n-stack A\n");
 	// while (head_a)
 	// {

@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 07:21:10 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/22 15:43:44 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/24 13:33:43 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,13 @@ void	ss(t_stack **head_b, t_stack **head_a);
 void	rrr(t_stack **head_b, t_stack **head_a);
 void	pb(t_stack **head_b, t_stack **head_a);
 void	pa(t_stack **head_b, t_stack **head_a);
-void	move_min_top(int pos1, int pos2, t_stack **head_a);
+void	move_num_top(int pos1, int pos2, t_stack **head_a);
+int		number_in_range_top(int *table, t_stack *stack_a, int end);
+int		number_in_range_bottom(int *table, t_stack	*head_a, int *rev_tab, int end);
+int		*sorted_in_tab(t_stack	*head_a);
+int		*reversed_stack(t_stack *head_a);
+int		position(int num, t_stack *temp);
+int		*sorted_MAX_tab(int	*tab, int len);
 
 
 #endif

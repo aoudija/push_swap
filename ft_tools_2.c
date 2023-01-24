@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 08:35:05 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/23 07:31:12 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/24 12:20:12 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,19 @@ int	ft_lstsize(t_stack *lst)
 		i++;
 	}
 	return (i);
+}
+
+int	position(int num, t_stack *temp)
+{
+	int	pos;
+
+	pos = 1;
+	while (temp)
+	{
+		if (temp->num == num)
+			break ;
+		pos++;
+		temp = temp->next;
+	}
+	return (pos);
 }
