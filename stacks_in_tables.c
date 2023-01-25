@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:03:33 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/24 15:26:41 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/24 16:24:57 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	*sorted_in_tab(t_stack	*head_a)
 	return (tab);
 }
 
-int	*sorted_MAX_tab(int	*tab, int len)
+int	*sorted_max_tab(int	*tab, int len)
 {
 	int	i;
 	int	*rev_tab;

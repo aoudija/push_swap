@@ -6,13 +6,13 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:26:21 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/24 16:06:26 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/24 16:19:42 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	optimize_mnt(int i, int pos,t_stack ***head_a)
+void	optimize_mnt(int i, int pos, t_stack ***head_a)
 {
 	if (pos > ft_lstsize(**head_a) / 2)
 	{
@@ -51,7 +51,7 @@ void	move_min_top(int pos1, int pos2, t_stack **head_a)
 	else if (pos2 > ft_lstsize(*head_a) / 2)
 		j = ft_lstsize(*head_a) - pos2 + 1;
 	if (j <= i)
-		optimize_mnt(j , pos2, &head_a);
+		optimize_mnt(j, pos2, &head_a);
 	else if (j > i)
 		optimize_mnt(i, pos1, &head_a);
 }

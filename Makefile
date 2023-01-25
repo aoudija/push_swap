@@ -6,7 +6,7 @@
 #    By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/24 15:21:39 by aoudija           #+#    #+#              #
-#    Updated: 2023/01/24 16:16:01 by aoudija          ###   ########.fr        #
+#    Updated: 2023/01/24 20:15:27 by aoudija          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 DEPS = push_swap.h
 FILES = ft_tools_1.c ft_tools_2.c move_num_top.c push_swap.c rules_1.c\
-		rules_2.c rules_3.c search_in_range.c stacks_in_tables.c\
+		rules_2.c search_in_range.c stacks_in_tables.c push_to_stack_b.c push_to_stack_a.c\
+		sort_five.c rules_3.c\
 
 OBG = $(FILES:.c=.o)
 
@@ -33,7 +34,8 @@ clean:
 
 fclean: clean
 	rm -f $(NAME) client server
-	rm push_swap
+	rm -f push_swap
+
 re: fclean all	
 
 .PHONY: all clean fclean re ps

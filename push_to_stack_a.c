@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_2.c                                          :+:      :+:    :+:   */
+/*   push_to_stack_a.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 13:50:18 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/25 12:36:33 by aoudija          ###   ########.fr       */
+/*   Created: 2023/01/24 16:46:46 by aoudija           #+#    #+#             */
+/*   Updated: 2023/01/25 12:02:47 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pb(t_stack **head_b, t_stack **head_a)
+void	push_to_stack_a(t_stack **head_b, t_stack **head_a, int *r_max_tab, int size)
 {
-	int		temp;
+	int	i;
+	int pos1;
 
-	if (!(*head_a))
-		return ;
-	temp = (*head_a)->num;
-	(*head_a) = (*head_a)->next;
-	ft_lstadd_front(head_b, ft_lstnew(temp));
-	printf("pb\n");
-}
-
-void	pa(t_stack **head_b, t_stack **head_a)
-{
-	int		temp;
-
-	if (!(*head_b))
-		return ;
-	temp = (*head_b)->num;
-	(*head_b) = (*head_b)->next;
-	ft_lstadd_front(head_a, ft_lstnew(temp));
-	printf("pa\n");
+	i = 0;
+	while (i < size)
+	{
+		pos1 = position(r_max_tab[i], *head_b);
+		if (pos1 == 1)
+		{
+		}
+		else if (pos1 == ft_lstsize(*head_a) - 1)
+		{
+			rrb(head_b);
+			rrb(head_b);
+		}
+		else
+			move_max_top(pos1, head_b);
+		pa(head_b, head_a);
+		i++;
+	}
 }

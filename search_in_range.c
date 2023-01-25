@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:01:23 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/24 16:08:52 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/24 16:23:52 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,3 @@ int	number_in_range_bottom(int *table, t_stack	*head_a, int *rev_tab, int end)
 	}
 	return (0);
 }
-
