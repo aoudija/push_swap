@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:19:27 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/25 13:11:11 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/27 11:26:39 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	sa(t_stack **head_a)
 	temp = (*head_a)->num;
 	(*head_a)->num = (*head_a)->next->num;
 	(*head_a)->next->num = temp;
-	printf("sa\n");
+	ft_putstr("sa\n");
 }
 
 void	sb(t_stack **head_b)
@@ -29,6 +29,7 @@ void	sb(t_stack **head_b)
 	temp = (*head_b)->num;
 	(*head_b)->num = (*head_b)->next->num;
 	(*head_b)->next->num = temp;
+	ft_putstr("sb\n");
 }
 
 void	ra(t_stack **head_a)
@@ -36,9 +37,10 @@ void	ra(t_stack **head_a)
 	t_stack	*tempo;
 
 	tempo = (*head_a);
+	free(*head_a);
 	(*head_a) = (*head_a)->next;
 	ft_lstadd_back(head_a, ft_lstnew(tempo->num));
-	printf("ra\n");
+	ft_putstr("ra\n");
 }
 
 void	rb(t_stack **head_b)
@@ -46,9 +48,10 @@ void	rb(t_stack **head_b)
 	t_stack	*tempo;
 
 	tempo = (*head_b);
+	free(*head_b);
 	(*head_b) = (*head_b)->next;
 	ft_lstadd_back(head_b, ft_lstnew(tempo->num));
-	printf("rb\n");
+	ft_putstr("rb\n");
 }
 
 void	rra(t_stack **head_a)
@@ -67,6 +70,7 @@ void	rra(t_stack **head_a)
 		tempo = tempo->next;
 		temp--;
 	}
+	free(tempo->next);
 	tempo->next = NULL;
-	printf("rra\n");
+	ft_putstr("rra\n");
 }

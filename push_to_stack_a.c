@@ -6,16 +6,17 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:46:46 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/25 12:02:47 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/29 11:15:53 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_to_stack_a(t_stack **head_b, t_stack **head_a, int *r_max_tab, int size)
+void	push_to_stack_a(t_stack **head_b, t_stack **head_a,
+			int *r_max_tab, int size)
 {
 	int	i;
-	int pos1;
+	int	pos1;
 
 	i = 0;
 	while (i < size)
@@ -24,7 +25,7 @@ void	push_to_stack_a(t_stack **head_b, t_stack **head_a, int *r_max_tab, int siz
 		if (pos1 == 1)
 		{
 		}
-		else if (pos1 == ft_lstsize(*head_a) - 1)
+		else if (pos1 == ft_lstsize(*head_b) - 1)
 		{
 			rrb(head_b);
 			rrb(head_b);
@@ -34,4 +35,5 @@ void	push_to_stack_a(t_stack **head_b, t_stack **head_a, int *r_max_tab, int siz
 		pa(head_b, head_a);
 		i++;
 	}
+	free(r_max_tab);
 }

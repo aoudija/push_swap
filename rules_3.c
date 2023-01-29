@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:50:18 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/25 12:36:22 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/29 10:08:05 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,28 @@ void	rrb(t_stack **head_b)
 		tempo = tempo->next;
 		temp--;
 	}
+	free(tempo->next);
 	tempo->next = NULL;
-	printf("rrb\n");
+	ft_putstr("rrb\n");
 }
 
 void	rr(t_stack **head_b, t_stack **head_a)
 {
 	ra(head_a);
 	rb(head_b);
+	ft_putstr("rr\n");
 }
 
 void	ss(t_stack **head_b, t_stack **head_a)
 {
 	sa(head_a);
 	sb(head_b);
+	ft_putstr("ss\n");
 }
 
 void	rrr(t_stack **head_b, t_stack **head_a)
 {
 	rra(head_a);
 	rrb(head_b);
+	ft_putstr("rrr\n");
 }

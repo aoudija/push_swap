@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:26:21 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/24 16:19:42 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/27 10:58:35 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,31 @@ void	optimize_mnt(int i, int pos, t_stack ***head_a)
 			i--;
 		}
 	}
-	else if (i == 0)
-	{
-	}
-	else
+	else if (i != 0)
 	{
 		while (i > 0)
 		{
 			ra(*head_a);
+			i--;
+		}
+	}
+}
+
+void	optimize_mxt(int i, int pos, t_stack ***head_b)
+{
+	if (pos > ft_lstsize(**head_b) / 2)
+	{
+		while (i > 0)
+		{
+			rrb(*head_b);
+			i--;
+		}
+	}
+	else if (i != 0)
+	{
+		while (i > 0)
+		{
+			rb(*head_b);
 			i--;
 		}
 	}
@@ -65,5 +82,5 @@ void	move_max_top(int pos, t_stack **head_b)
 		i = pos - 1;
 	else if (pos > ft_lstsize(*head_b) / 2)
 		i = ft_lstsize(*head_b) - pos + 1;
-	optimize_mnt(i, pos, &head_b);
+	optimize_mxt(i, pos, &head_b);
 }
