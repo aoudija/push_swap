@@ -1,39 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 07:52:48 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/31 09:55:30 by aoudija          ###   ########.fr       */
+/*   Created: 2023/01/29 17:04:33 by aoudija           #+#    #+#             */
+/*   Updated: 2023/01/31 09:43:31 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	sort(t_stack **head_a, t_stack **head_b)
-{
-	int		*tab;
-	int		*r_max_tab;
-	int		size;
-
-	if (ft_lstsize((*head_a)) == 3)
-		sort_three(head_a);
-	else if (ft_lstsize((*head_a)) == 2)
-		sort_two(head_a);
-	else if (ft_lstsize((*head_a)) == 5)
-		sort_five(head_a, head_b);
-	else
-	{
-		tab = sorted_in_tab((*head_a));
-		push_to_stack_b(tab, head_a, head_b, ft_lstsize((*head_a)));
-		size = ft_lstsize((*head_b));
-		tab = sorted_in_tab((*head_b));
-		r_max_tab = sorted_max_tab(tab, size);
-		push_to_stack_a(head_b, head_a, r_max_tab, size);
-	}
-}
 
 char	**check_error(int ac, char **av)
 {
@@ -76,7 +53,7 @@ int	is_sorted(char **s)
 	return (0);
 }
 
-int	optime(char **s)
+int	optimez(char **s)
 {
 	if (!s)
 		return (0);
@@ -89,6 +66,32 @@ int	optime(char **s)
 	return (1);
 }
 
+void	ot(t_stack **head_a, t_stack **head_b)
+{
+	char	*line;
+
+	line = get_next_line(0);
+	while (line)
+	{
+		rules_user(line, head_a, head_b);
+		free(line);
+		line = get_next_line(0);
+	}
+	free(line);
+	while ((*head_a)->next)
+	{
+		if ((*head_a)->num > (*head_a)->next->num)
+		{
+			ft_putstr("KO\n");
+			exit(1);
+		}
+		free((*head_a));
+		(*head_a) = (*head_a)->next;
+	}
+	free((*head_a));
+	ft_putstr("OK\n");
+}
+
 int	main(int ac, char *av[])
 {
 	t_stack	*head_a;
@@ -96,18 +99,20 @@ int	main(int ac, char *av[])
 	char	**s;
 	int		i;
 
-	s = check_error(ac, av);
-	if (!optime(s))
-		return (0);
-	head_a = ft_lstnew(ft_atoi(s[0]));
-	i = 1;
-	while (s[i])
+	if (ac > 1)
 	{
-		ft_lstadd_back(&head_a, ft_lstnew(ft_atoi(s[i])));
-		i++;
+		s = check_error(ac, av);
+		if (!optimez(s))
+			return (0);
+		head_a = ft_lstnew(ft_atoi(s[0]));
+		i = 1;
+		while (s[i])
+		{
+			ft_lstadd_back(&head_a, ft_lstnew(ft_atoi(s[i])));
+			i++;
+		}
+		ft_free(s);
+		ot(&head_a, &head_b);
 	}
-	ft_free(s);
-	sort(&head_a, &head_b);
-	ft_lstclear(&head_a);
 	return (0);
 }

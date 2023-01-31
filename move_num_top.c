@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:26:21 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/27 10:58:35 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/29 19:30:10 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	optimize_mnt(int i, int pos, t_stack ***head_a)
 	{
 		while (i > 0)
 		{
-			rra(*head_a);
+			rra(*head_a, 1);
 			i--;
 		}
 	}
@@ -26,7 +26,7 @@ void	optimize_mnt(int i, int pos, t_stack ***head_a)
 	{
 		while (i > 0)
 		{
-			ra(*head_a);
+			ra(*head_a, 1);
 			i--;
 		}
 	}
@@ -38,7 +38,7 @@ void	optimize_mxt(int i, int pos, t_stack ***head_b)
 	{
 		while (i > 0)
 		{
-			rrb(*head_b);
+			rrb(*head_b, 1);
 			i--;
 		}
 	}
@@ -46,7 +46,7 @@ void	optimize_mxt(int i, int pos, t_stack ***head_b)
 	{
 		while (i > 0)
 		{
-			rb(*head_b);
+			rb(*head_b, 1);
 			i--;
 		}
 	}

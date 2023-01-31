@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:46:02 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/29 11:13:29 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/29 19:29:50 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,19 @@ void	opt(t_stack ***head_a, t_stack ***head_b, int *tab, int j)
 	else if (pos1 == ft_lstsize(**head_a) - 1
 		|| pos2 == ft_lstsize(**head_a) - 1)
 	{
-		rra(*head_a);
-		rra(*head_a);
+		rra(*head_a, 1);
+		rra(*head_a, 1);
 	}
 	else
 		move_min_top(pos1, pos2, *head_a);
-	pb(*head_b, *head_a);
+	pb(*head_b, *head_a, 1);
 	free(r_tab);
 }
 
 int	dvs(t_stack *head_a, int size)
 {
 	int	dv;
+
 	if (ft_lstsize(head_a) == 100)
 		dv = size / 5;
 	else if (ft_lstsize(head_a) == 500)

@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:03:33 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/24 16:24:57 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/29 11:57:38 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	*sorted_max_tab(int	*tab, int len)
 		i++;
 		len--;
 	}
+	free(tab);
 	return (rev_tab);
 }
 

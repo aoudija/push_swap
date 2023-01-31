@@ -6,13 +6,13 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:50:18 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/27 11:26:49 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/29 19:26:54 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pb(t_stack **head_b, t_stack **head_a)
+void	pb(t_stack **head_b, t_stack **head_a, int i)
 {
 	int		temp;
 
@@ -22,12 +22,13 @@ void	pb(t_stack **head_b, t_stack **head_a)
 	free(*head_a);
 	(*head_a) = (*head_a)->next;
 	ft_lstadd_front(head_b, ft_lstnew(temp));
-	ft_putstr("pb\n");
+	if (i == 1)
+		ft_putstr("pb\n");
 }
 
-void	pa(t_stack **head_b, t_stack **head_a)
+void	pa(t_stack **head_b, t_stack **head_a, int i)
 {
-	int		temp;
+	int	temp;
 
 	if (!(*head_b))
 		return ;
@@ -35,5 +36,6 @@ void	pa(t_stack **head_b, t_stack **head_a)
 	free(*head_b);
 	(*head_b) = (*head_b)->next;
 	ft_lstadd_front(head_a, ft_lstnew(temp));
-	ft_putstr("pa\n");
+	if (i == 1)
+		ft_putstr("pa\n");
 }

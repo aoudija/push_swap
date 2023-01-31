@@ -6,7 +6,7 @@
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:46:46 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/29 11:15:53 by aoudija          ###   ########.fr       */
+/*   Updated: 2023/01/29 19:30:38 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	push_to_stack_a(t_stack **head_b, t_stack **head_a,
 		}
 		else if (pos1 == ft_lstsize(*head_b) - 1)
 		{
-			rrb(head_b);
-			rrb(head_b);
+			rrb(head_b, 1);
+			rrb(head_b, 1);
 		}
 		else
 			move_max_top(pos1, head_b);
-		pa(head_b, head_a);
+		pa(head_b, head_a, 1);
 		i++;
 	}
 	free(r_max_tab);

@@ -1,54 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tools_2.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoudija <aoudija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 08:35:05 by aoudija           #+#    #+#             */
-/*   Updated: 2023/01/29 19:27:32 by aoudija          ###   ########.fr       */
+/*   Created: 2022/10/30 13:08:41 by aoudija           #+#    #+#             */
+/*   Updated: 2023/01/30 20:57:56 by aoudija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lstsize(t_stack *lst)
+void	ft_lstclear(t_stack **lst)
 {
-	int	i;
+	t_stack	*tmp;
 
-	i = 0;
-	while (lst)
+	if (!lst)
+		return ;
+	tmp = *lst;
+	while (tmp)
 	{
-		lst = lst->next;
-		i++;
+		free(tmp);
+		tmp = tmp->next;
 	}
-	return (i);
-}
-
-int	position(int num, t_stack *temp)
-{
-	int	pos;
-
-	pos = 1;
-	while (temp)
-	{
-		if (temp->num == num)
-			break ;
-		pos++;
-		temp = temp->next;
-	}
-	return (pos);
-}
-
-int	ft_isdigit(int c)
-{
-	if (c <= 57 && c >= 48)
-		return (1);
-	return (0);
-}
-
-void	sort_two(t_stack **head_a)
-{
-	if ((*head_a)->num > (*head_a)->next->num)
-		sa(head_a, 1);
 }
